@@ -22,10 +22,11 @@ all: $(TARGET)
 $(TARGET): $(OBJS)
 	$(CC) $(LFLAGS) $^ -o $@
 
-$(BUILD_DIR)/main.o: main.cpp
+$(BUILD_DIR)/main.o: main.cpp dep.hpp dep_t.hpp needs_dep_mngd.hpp \
+ needs_dep.hpp needs_dep_t.hpp
 	$(CC) $(CFLAGS) $< -o $@
 
-$(BUILD_DIR)/dep.o: dep.cpp
+$(BUILD_DIR)/dep.o: dep.cpp dep_t.hpp
 	$(CC) $(CFLAGS) $< -o $@
 
 clean:
